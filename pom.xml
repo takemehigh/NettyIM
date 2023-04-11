@@ -4,10 +4,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
+    <groupId>wg</groupId>
     <artifactId>NettyIM</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>NettyIMCommon</module>
+        <module>NettyImServer</module>
+        <module>NettyImClient</module>
+    </modules>
+    <parent>
+        <groupId>wg</groupId>
+        <artifactId>myRepo</artifactId>
+        <version>1.0-SNAPSHOT</version>
 
+    </parent>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
@@ -23,17 +33,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
-            <version>${springboot.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
-            <version>${gson.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-            <version>${springboot.version}</version>
             <optional>true</optional>
         </dependency>
 
@@ -47,17 +54,14 @@
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-java</artifactId>
-            <version>${protobuf.version}</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.16.10</version>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
         </dependency>
     </dependencies>
 </project>
