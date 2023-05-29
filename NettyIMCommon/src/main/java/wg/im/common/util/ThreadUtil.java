@@ -56,6 +56,16 @@ public class ThreadUtil {
     private static final int KEEP_ALIVE_SECONDS = 30;  //空闲线程存活时间
     private static final int QUEUE_SIZE = 10000;
     private static final String MIXED_THREAD_AMOUNT = "mixed.thread.amount";
+    
+    /**
+     获取混合型线程池
+     @return
+    */
+
+    public static ThreadPoolExecutor getMixedTargetThreadPool() {
+        return MixedTargetThreadPoolLazyHolder.EXECUTOR;
+    }
+
     private static class MixedTargetThreadPoolLazyHolder {
         //首先从环境变量 mixed.thread.amount 中获取预先配置的线程数
         //如果没有对 mixed.thread.amount 做配置，则使用常量 MIXED_MAX 作为线程数

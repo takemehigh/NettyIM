@@ -6,12 +6,11 @@ import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.protobuf.ProtobufDecoder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import wg.im.common.netty.handler.JavaToByteBufferOutBound;
-import wg.im.common.netty.handler.NettyEchoHandler;
-import wg.im.common.netty.handler.OutBoundHandlerDemoE;
+import wg.im.common.netty.handler.*;
 
 /**
 * @description: TODO
@@ -47,13 +46,15 @@ public class ChatServer {
 
                 @Override
                 protected void initChannel(SocketChannel ch) throws Exception {
+                    ch.pipeline().addLast(new MessageDecoder());
+                    //ch.pipeline().addLast(new MessageEncoder());
 
-                 //   ch.pipeline().addLast(new DiscardInBoundHandler());
-                    ch.pipeline().addLast("echo",new NettyEchoHandler());
-
-                    ch.pipeline().addLast(new JavaToByteBufferOutBound());
-
-                    ch.pipeline().addLast(new OutBoundHandlerDemoE());
+                    //   ch.pipeline().addLast(new DiscardInBoundHandler());
+//                    ch.pipeline().addLast("echo",new NettyEchoHandler());
+//
+//                    ch.pipeline().addLast(new JavaToByteBufferOutBound());
+//
+//                    ch.pipeline().addLast(new OutBoundHandlerDemoE());
 
                 }
 

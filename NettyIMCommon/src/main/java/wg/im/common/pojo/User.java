@@ -1,7 +1,7 @@
 package wg.im.common.pojo;
 
 import lombok.Data;
-import wg.im.common.pojo.msg.MsgProtos;
+import wg.im.common.bean.proto.msg.ProtoMsg;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -33,12 +33,12 @@ public class User {
                 '}';
     }
 
-    public User fromMsg(MsgProtos.LoginRequest request){
+    public User fromMsg(ProtoMsg.LoginRequest request){
         User user = new User();
         user.setUid(request.getUid());
-        user.setUserName(request.getUserName());
-        user.setDeviceId(request.getDeviceId());
-        user.setPassWord(request.getPassWord());
+//        user.setUserName(request.getUserName());
+//        user.setDeviceId(request.getDeviceId());
+//        user.setPassWord(request.getPassWord());
 
         return user;
     }

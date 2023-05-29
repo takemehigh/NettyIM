@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 import wg.chatClient.ChatClient;
+import wg.controller.CommandController;
 
 /**
  * @author gw
@@ -18,7 +19,7 @@ public class NettyClientApplication {
 
     public static void main(String[] args) {
         ApplicationContext applicationContext = SpringApplication.run(NettyClientApplication.class);
-        ChatClient ds = (ChatClient) applicationContext.getBean("chatClient");
-        ds.startClient();
+        CommandController commandController = (CommandController) applicationContext.getBean("commandController");
+        commandController.startRunningThread();
     }
 }
